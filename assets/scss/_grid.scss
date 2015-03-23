@@ -1,0 +1,531 @@
+/******************************************************************
+Site Name: Microlights
+Author: Jim Camut
+Stylesheet: This is our Grid!
+
+******************************************************************/
+
+
+@mixin grid-col {
+  float: left;
+  padding-right: 0.75em;
+}
+
+@mixin nc-col {
+  display: inline-block !important;
+  float: left;
+  padding-right: 0;
+  margin-right: 4%;
+}
+
+
+
+.last-col {
+  padding-right: 0;
+  margin-right: 0;
+  float: right !important;
+}
+
+
+.center {float: none; margin: 0 auto; text-align: center;}
+
+@media (max-width: 480px) {
+  .m-hide {display: none !important;}
+}
+
+@media (max-width: 767px) {
+
+
+  .m-all {
+    @include grid-col;
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .m-1of2, .mnc-1of2 {
+    @include grid-col;
+    width: 50%;
+  }
+  .mnc-1of2 {
+    @include nc-col;
+    width: 48%;
+  }
+
+  .m-1of3 {
+    @include grid-col;
+    width: 33.33%;
+  }
+  .mnc-1of3 {
+   @include nc-col;
+    width: 31.3332%;
+    margin-right: 3%;
+  }
+
+  .m-2of3 {
+    @include grid-col;
+    width: 66.66%;
+  }
+
+  .m-1of4 {
+    @include grid-col;
+    width: 25%;
+  }
+  .mnc-1of4 {
+    @include nc-col;
+    width: 22%;
+  }
+
+  .m-3of4 {
+    @include grid-col;
+    width: 75%;
+  }
+
+  .m-1of12 {@include grid-col;width: 8.33%;}
+  .m-2of12 {@include grid-col;width: 2 * 8.33%;}
+  .m-3of12 {@include grid-col;width: 3 * 8.33%;}
+  .m-4of12 {@include grid-col;width: 4 * 8.33%;}
+  .m-5of12 {@include grid-col;width: 5 * 8.33%;}
+  .m-6of12 {@include grid-col;width: 6 * 8.33%;}
+  .m-7of12 {@include grid-col;width: 7 * 8.33%;}
+  .m-8of12 {@include grid-col;width: 8 * 8.33%;}
+  .m-9of12 {@include grid-col;width: 9 * 8.33%;}
+  .m-10of12 {@include grid-col;width: 10 * 8.33%;}
+  .m-11of12 {@include grid-col;width: 11 * 8.33%;}
+  .m-12of12 {@include grid-col;width: 12* 8.33%;}
+
+
+  .mnc-1of2 {
+    &:nth-child(odd) {clear: left;}&:nth-child(even) {margin-right: 0;}}
+  .mnc-1of3 {
+    &:nth-of-type(3n+1) {clear: left;}
+    &:nth-of-type(3n+3) {margin-right: 0;}
+  }
+  .mnc-1of4 {
+    &:nth-of-type(4n+1) {clear: left;}
+    &:nth-of-type(4n+4) {margin-right: 0;}
+  }
+  .mnc-1of5 {
+    &:nth-of-type(5n+1) {clear: left;}
+    &:nth-of-type(5n+5) {margin-right: 0;}
+  }
+
+  .m-pull {float: right; }
+} // end mobile styles
+
+
+
+// Let's introduce the Phablet?
+@media (min-width: 481px) and (max-width: 767px) {
+
+  .m-all, [class^="m-"], [class*="m-"], [class^="mnc-"], [class*="mnc-"] {
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+
+  .p-all {
+    @include grid-col;
+    width: 100% !important;
+    padding-right: 0;
+  }
+
+  .p-1of2, .pnc-1of2 {
+    @include grid-col;
+    width: 50%;
+  }
+  .pnc-1of2 {
+    @include nc-col;
+    width: 48%;
+  }
+
+  .p-1of3 {
+    @include grid-col;
+    width: 33.33%;
+  }
+  .pnc-1of3 {
+   @include nc-col;
+    width: 31.3332%;
+    margin-right: 3%;
+  }
+
+  .p-2of3 {
+    @include grid-col;
+    width: 66.66%;
+  }
+
+  .p-1of4 {
+    @include grid-col;
+    width: 25%;
+  }
+  .pnc-1of4 {
+    @include nc-col;
+    width: 22%;
+  }
+
+  .p-3of4 {
+    @include grid-col;
+    width: 75%;
+  }
+
+  .p-1of5 {
+    @include grid-col;
+    width: 20%;
+  }
+  .pnc-1of5 {
+    @include nc-col;
+    width: 18%;
+    margin-right: 2.5%;
+  }
+
+  .p-2of5 {
+    @include grid-col;
+    width: 40%;
+  }
+
+  .p-3of5 {
+    @include grid-col;
+    width: 60%;
+  }
+
+  .p-4of5 {
+    @include grid-col;
+    width: 80%;
+  }
+  .p-1of12 {@include grid-col;width: 8.33%;}
+  .p-2of12 {@include grid-col;width: 2 * 8.33%;}
+  .p-3of12 {@include grid-col;width: 3 * 8.33%;}
+  .p-4of12 {@include grid-col;width: 4 * 8.33%;}
+  .p-5of12 {@include grid-col;width: 5 * 8.33%;}
+  .p-6of12 {@include grid-col;width: 6 * 8.33%;}
+  .p-7of12 {@include grid-col;width: 7 * 8.33%;}
+  .p-8of12 {@include grid-col;width: 8 * 8.33%;}
+  .p-9of12 {@include grid-col;width: 9 * 8.33%;}
+  .p-10of12 {@include grid-col;width: 10 * 8.33%;}
+  .p-11of12 {@include grid-col;width: 11 * 8.33%;}
+  .p-12of12 {@include grid-col;width: 12* 8.33%;}
+
+  .pnc-1of2 {
+    &:nth-child(odd) {clear: left;}&:nth-child(even) {margin-right: 0;}}
+  .pnc-1of3 {
+    &:nth-of-type(3n+1) {clear: left;}
+    &:nth-of-type(3n+3) {margin-right: 0;}
+  }
+  .pnc-1of4 {
+    &:nth-of-type(4n+1) {clear: left;}
+    &:nth-of-type(4n+4) {margin-right: 0;}
+  }
+  .pnc-1of5 {
+    &:nth-of-type(5n+1) {clear: left;}
+    &:nth-of-type(5n+5) {margin-right: 0;}
+  }
+
+  .p-pull {float: right; }
+  .two-col, .three-col, .four-col {@include all(column-count, 2);}
+
+
+}
+
+
+
+/* Portrait tablet to landscape */
+@media (min-width: 768px) and (max-width: 1029px) {
+
+  .t-all {
+    @include grid-col;
+    width: 100% !important;
+    padding-right: 0;
+  }
+
+  .t-1of2, .tnc-1of2 {
+    @include grid-col;
+    width: 50%;
+  }
+  .tnc-1of2 {
+    @include nc-col;
+    width: 48%;
+  }
+
+  .t-1of3 {
+    @include grid-col;
+    width: 33.33%;
+  }
+  .tnc-1of3 {
+   @include nc-col;
+    width: 31.3332%;
+    margin-right: 3%;
+  }
+
+  .t-2of3 {
+    @include grid-col;
+    width: 66.66%;
+  }
+
+  .t-1of4 {
+    @include grid-col;
+    width: 25%;
+  }
+  .tnc-1of4 {
+    @include nc-col;
+    width: 22%;
+  }
+
+  .t-3of4 {
+    @include grid-col;
+    width: 75%;
+  }
+
+  .t-1of5 {
+    @include grid-col;
+    width: 20%;
+  }
+  .tnc-1of5 {
+    @include nc-col;
+    width: 18%;
+    margin-right: 2.5%;
+  }
+
+  .t-2of5 {
+    @include grid-col;
+    width: 40%;
+  }
+
+  .t-3of5 {
+    @include grid-col;
+    width: 60%;
+  }
+
+  .t-4of5 {
+    @include grid-col;
+    width: 80%;
+  }
+  .t-1of12 {@include grid-col;width: 8.33%;}
+  .t-2of12 {@include grid-col;width: 2 * 8.33%;}
+  .t-3of12 {@include grid-col;width: 3 * 8.33%;}
+  .t-4of12 {@include grid-col;width: 4 * 8.33%;}
+  .t-5of12 {@include grid-col;width: 5 * 8.33%;}
+  .t-6of12 {@include grid-col;width: 6 * 8.33%;}
+  .t-7of12 {@include grid-col;width: 7 * 8.33%;}
+  .t-8of12 {@include grid-col;width: 8 * 8.33%;}
+  .t-9of12 {@include grid-col;width: 9 * 8.33%;}
+  .t-10of12 {@include grid-col;width: 10 * 8.33%;}
+  .t-11of12 {@include grid-col;width: 11 * 8.33%;}
+  .t-12of12 {@include grid-col;width: 12* 8.33%;}
+
+  .tnc-1of2 {
+    &:nth-child(odd) {clear: left;}&:nth-child(even) {margin-right: 0;}}
+  .tnc-1of3 {
+    &:nth-of-type(3n+1) {clear: left;}
+    &:nth-of-type(3n+3) {margin-right: 0;}
+  }
+  .tnc-1of4 {
+    &:nth-of-type(4n+1) {clear: left;}
+    &:nth-of-type(4n+4) {margin-right: 0;}
+  }
+  .tnc-1of5 {
+    &:nth-of-type(5n+1) {clear: left;}
+    &:nth-of-type(5n+5) {margin-right: 0;}
+  }
+
+  .t-pull {float: right; }
+  .two-col {@include all(column-count, 2);}
+  .three-col, .four-col {@include all(column-count, 3);}
+
+
+
+} // end tablet
+
+/* Landscape to small desktop */
+@media (min-width: 1030px) {
+
+  .d-all {
+    @include grid-col;
+    width: 100% !important;
+    padding-right: 0;
+  }
+
+  .d-1of2, .tnc-1of2 {
+    @include grid-col;
+    width: 50%;
+  }
+  .dnc-1of2 {
+    @include nc-col;
+    width: 48%;
+  }
+
+  .d-1of3 {
+    @include grid-col;
+    width: 33.33%;
+  }
+  .dnc-1of3 {
+   @include nc-col;
+    width: 31.3332%;
+    margin-right: 3%;
+  }
+
+  .d-2of3 {
+    @include grid-col;
+    width: 66.66%;
+  }
+
+  .d-1of4 {
+    @include grid-col;
+    width: 25%;
+  }
+  .dnc-1of4 {
+    @include nc-col;
+    width: 22%;
+  }
+
+  .d-3of4 {
+    @include grid-col;
+    width: 75%;
+  }
+
+  .d-1of5 {
+    @include grid-col;
+    width: 20%;
+  }
+  .dnc-1of5 {
+    @include nc-col;
+    width: 18%;
+    margin-right: 2.5%;
+  }
+
+  .d-2of5 {
+    @include grid-col;
+    width: 40%;
+  }
+
+  .d-3of5 {
+    @include grid-col;
+    width: 60%;
+  }
+
+  .d-4of5 {
+    @include grid-col;
+    width: 80%;
+  }
+
+  .d-1of6 {
+    @include grid-col;
+    width: 16.6666666667%;
+  }
+
+  .d-1of7 {
+    @include grid-col;
+    width: 14.2857142857%;
+  }
+
+  .d-2of7 {
+    @include grid-col;
+    width: 28.5714286%;
+  }
+
+  .d-3of7 {
+    @include grid-col;
+    width: 42.8571429%;
+  }
+
+  .d-4of7 {
+    @include grid-col;
+    width: 57.1428572%;
+  }
+
+  .d-5of7 {
+    @include grid-col;
+    width: 71.4285715%;
+  }
+
+  .d-6of7 {
+    @include grid-col;
+    width: 85.7142857%;
+  }
+
+  .d-1of8 {
+    @include grid-col;
+    width: 12.5%;
+  }
+
+  .d-1of9 {
+    @include grid-col;
+    width: 11.1111111111%;
+  }
+
+  .d-1of10 {
+    @include grid-col;
+    width: 10%;
+  }
+
+  .d-1of11 {
+    @include grid-col;
+    width: 9.09090909091%;
+  }
+
+  .d-1of12 {@include grid-col;width: 8.33%;}
+  .d-2of12 {@include grid-col;width: 2 * 8.33%;}
+  .d-3of12 {@include grid-col;width: 3 * 8.33%;}
+  .d-4of12 {@include grid-col;width: 4 * 8.33%;}
+  .d-5of12 {@include grid-col;width: 5 * 8.33%;}
+  .d-6of12 {@include grid-col;width: 6 * 8.33%;}
+  .d-7of12 {@include grid-col;width: 7 * 8.33%;}
+  .d-8of12 {@include grid-col;width: 8 * 8.33%;}
+  .d-9of12 {@include grid-col;width: 9 * 8.33%;}
+  .d-10of12 {@include grid-col;width: 10 * 8.33%;}
+  .d-11of12 {@include grid-col;width: 11 * 8.33%;}
+  .d-12of12 {@include grid-col;width: 12* 8.33%;}
+
+
+
+  .dnc-1of2 {&:nth-child(odd) {clear: left;}&:nth-child(even) {margin-right: 0;}}
+  .dnc-1of3 {
+    &:nth-of-type(3n+1) {clear: left;}
+    &:nth-of-type(3n+3) {margin-right: 0;}
+  }
+  .dnc-1of4 {
+    &:nth-of-type(4n+1) {clear: left;}
+    &:nth-of-type(4n+4) {margin-right: 0;}
+  }
+  .dnc-1of5 {
+    &:nth-of-type(5n+1) {clear: left;}
+    &:nth-of-type(5n+5) {margin-right: 0;}
+  }
+
+
+  .d-pull {float: right; }
+  .two-col {@include all(column-count, 2);}
+  .three-col {@include all(column-count, 3);}
+  .four-col {@include all(column-count, 4);}
+
+} // end desktop styles
+
+
+
+// CSS Columns
+.two-col, .three-col, .four-col, .five-col {
+  & > *{
+    @include all(column-break-inside, avoid);
+    @include all(page-break-inside, avoid);
+    @include all(break-inside, avoid);
+    /*
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    */
+  }
+
+
+  & > p {
+    @include all(column-break-inside, auto);
+    @include all(page-break-inside, auto);
+    @include all(break-inside, auto);
+    
+    /*
+    -webkit-column-break-inside: auto;
+    page-break-inside: auto;
+    break-inside: auto;
+    */
+  }
+
+
+  @include all(column-gap, 2em);
+}

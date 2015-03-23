@@ -1,0 +1,200 @@
+/******************************************************************
+Site Name: Twitter Cards
+Author: Jim Camut
+
+Stylesheet: Twitter Card Styles
+
+******************************************************************/
+
+///////// Varibles
+$pink1: red;
+$pink2: red;
+$pink3: red;
+$pink4: red;
+
+$gray1: red;
+$gray2: red;
+$gray3: red;
+$gray4: red;
+
+
+$prefixes: "-webkit-", "-moz-", "-ms-","-o-", "";
+
+
+// Keyframes
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+@mixin all($prop, $value...) {
+  @each $prefix in $prefixes {
+    #{$prefix}#{$prop}: $value;
+  }
+}
+
+@include keyframes(flashColor) {
+    0% {background-color: #f9f9f9;}
+    50% {background-color: $pink4;}
+    //50% {background-color: $pink1;}
+    //50% {background-color: $pink3;}
+    100% {background-color: #f9f9f9;}
+}
+
+.removeMe {
+    position: relative;
+    clear: both;
+    display: block;
+    width: 100%;
+    height: 100px;
+    background: #fff url(/wp-content/themes/gooee/library/images/loader2.gif) center center no-repeat;
+}
+
+
+$padd: 20px;
+#tweets { 
+    .removeMe {background-size: 40px;}
+
+
+    ul#tweetContainer {
+        display: block;
+        position: relative;
+         li {
+            list-style-type: none;
+            background: $gray3;
+            visibility: hidden; opacity: 0;
+            float: left;
+            position: relative;
+            display: inline-block;
+            width: 30%;
+            margin: 1.5%;
+            height: 0;
+            padding: 0;
+            min-height: 310px;
+            @include all(transition, all 1s ease-out);
+            @include all(box-shadow, 0 0 10px rgba(black, 0.15));
+
+
+            &:nth-child(even) {
+                @include all(transform, translatex(2000px));
+            }
+            &:nth-child(odd) {
+                @include all(transform, translatex(-2000px));
+            }
+
+            &:nth-child(3n + 1) {
+                // clear: both;
+            }
+
+            p {
+                padding: $padd;
+                margin: 0;
+                font-size: 90%;
+
+                a {word-break: break-all;}
+
+                &.tweet-head {
+                    font-weight: 900;
+                    font-size: 100%;
+                    padding: 10px $padd;
+                    background: darken($gray3, 10%);
+                    color: #fff;
+                    font-size: 95%;
+                    a { color: #fff; &:hover {color: $pink3} }
+                }
+            }
+
+            .tweet-img {
+                background: #fff url(/wp-content/themes/gooee/library/images/loader2.gif) center center no-repeat;
+                background-size: 40px;
+                overflow: hidden;
+                display: block;
+                position: relative;
+                margin: 0;
+                width: 100%;
+                max-height: 130px;
+                img {
+                    display: block;
+                    margin: 0;
+                    opacity: 0;
+                    @include all(transition,  (all 1s ease 1.2s));
+
+                    &:hover {
+                        @include all(transition,  (all 0.2s ease 0s));
+                    }
+                }
+            }
+            
+
+            &.added {
+                visibility: visible;
+                opacity: 1;
+                height: auto;
+                line-height: 1.2em;
+                // @include all(animation, flashColor 1s 0 0 forwards);
+                @include all(transform, translatex(0px));
+
+                .tweet-img {
+                    img {
+                        opacity: 1;
+                        &:hover {
+                            // border-left: inset 5px solid $pink3;
+                        }
+                    }
+                }
+                
+            }
+            &.hidden {
+                visibility: hidden;
+                opacity: 0;
+                height: 0;
+                display: none;
+            }
+        }
+    }
+}
+
+
+#more-tweets {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: $gray3;
+    margin: 40px 0;
+    padding: 20px;
+    clear: both;
+
+    &:hover{
+        background: darken($gray3, 10%);
+    }
+}
+
+#tweets p#tweet-error {
+    display: none;
+    visibility: visible; opacity: 1;
+    height: auto;
+}
+
+
+
