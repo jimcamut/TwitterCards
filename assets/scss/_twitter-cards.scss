@@ -6,16 +6,18 @@ Stylesheet: Twitter Card Styles
 
 ******************************************************************/
 
-///////// Varibles
-$pink1: red;
-$pink2: red;
-$pink3: red;
-$pink4: red;
 
-$gray1: red;
-$gray2: red;
-$gray3: red;
-$gray4: red;
+
+///////// Varibles
+$pink1: #efefef;
+$pink2: #efefef;
+$pink3: #efefef;
+$pink4: #efefef;
+
+$gray1: #efefef;
+$gray2: #efefef;
+$gray3: #efefef;
+$gray4: #efefef;
 
 
 $prefixes: "-webkit-", "-moz-", "-ms-","-o-", "";
@@ -62,13 +64,29 @@ $prefixes: "-webkit-", "-moz-", "-ms-","-o-", "";
     100% {background-color: #f9f9f9;}
 }
 
-.removeMe {
+* {
+    @include all(box-sizing, border-box);
+}
+
+ul {margin: 0; padding: 0;}
+
+$fs: 86%;
+
+@include keyframes(flashColor) {
+    0% {background-color: #f9f9f9;}
+    50% {background-color: $pink4;}
+    //50% {background-color: $pink1;}
+    //50% {background-color: $pink3;}
+    100% {background-color: #f9f9f9;}
+}
+
+.tweets.loader {
     position: relative;
     clear: both;
     display: block;
     width: 100%;
     height: 100px;
-    background: #fff url(/wp-content/themes/gooee/library/images/loader2.gif) center center no-repeat;
+    background: #fff url(/assets/img/loader2.gif) center center no-repeat;
 }
 
 
@@ -80,7 +98,7 @@ $padd: 20px;
     ul#tweetContainer {
         display: block;
         position: relative;
-         li {
+         > li {
             list-style-type: none;
             background: $gray3;
             visibility: hidden; opacity: 0;
@@ -88,11 +106,11 @@ $padd: 20px;
             position: relative;
             display: inline-block;
             width: 30%;
-            margin: 1.5%;
+            margin: 1.5% 5% 1.5% 0;
             height: 0;
-            padding: 0;
-            min-height: 310px;
-            @include all(transition, all 1s ease-out);
+            padding: 0 0 40px 0;
+            min-height: 350px;
+            @include all(transition, all 0.5s ease-out);
             @include all(box-shadow, 0 0 10px rgba(black, 0.15));
 
 
@@ -106,11 +124,15 @@ $padd: 20px;
             &:nth-child(3n + 1) {
                 // clear: both;
             }
+            &:nth-child(3n) {
+                margin-right: 0;
+            }
 
             p {
                 padding: $padd;
                 margin: 0;
-                font-size: 90%;
+                font-size: $fs;
+                line-height: 1.4em;
 
                 a {word-break: break-all;}
 
@@ -126,7 +148,7 @@ $padd: 20px;
             }
 
             .tweet-img {
-                background: #fff url(/wp-content/themes/gooee/library/images/loader2.gif) center center no-repeat;
+                background: #fff url(/assets/img/loader2.gif) center center no-repeat;
                 background-size: 40px;
                 overflow: hidden;
                 display: block;
@@ -134,10 +156,21 @@ $padd: 20px;
                 margin: 0;
                 width: 100%;
                 max-height: 130px;
+
+                &.bird {
+                    background: transparent;
+                      width: 50px;
+                      height: 41px;
+                      left: 50%;
+                      margin: 35px 0 0 -25px;
+                }
+
                 img {
                     display: block;
                     margin: 0;
                     opacity: 0;
+                    width: 100%;
+                    height: auto;
                     @include all(transition,  (all 1s ease 1.2s));
 
                     &:hover {
@@ -175,6 +208,25 @@ $padd: 20px;
     }
 }
 
+ul.interact {
+    display: block;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    li {
+        display: inline-block;
+        text-align: center;
+        a {
+            display: block;
+            text-align: center;
+            padding: 5px 10px;
+            font-size: $fs;
+        }
+    }
+}
+
 
 #more-tweets {
     display: block;
@@ -196,5 +248,37 @@ $padd: 20px;
     height: auto;
 }
 
+
+@media all and (max-width: 767px) {
+    #tweets { 
+        ul#tweetContainer {
+             > li {
+                width: 48%;
+                margin: 4% 4% 0 0;
+                padding: 0 0 45px 0;
+                min-height: 338px;
+                p {font-size: 100%;}
+                &:nth-child(even) {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+    ul.interact li a {font-size: 100%; padding: 10px 10px;}
+}
+
+
+@media all and (max-width: 468px) {
+    #tweets { 
+        ul#tweetContainer {
+             > li {
+                width: 100%;
+                margin: 0 0 4% 0;
+                //padding: 0 0 40px 0;
+                min-height: 0;
+            }
+        }
+    }
+}
 
 
