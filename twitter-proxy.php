@@ -3,13 +3,14 @@
 // Thanks to Mike Rogers!
 // https://gist.github.com/MikeRogers0/5033286#file-twitter-proxy-php
 
-/**
+/*
  *  Usage:
  *  Send the url you want to access url encoded in the url paramater, for example (This is with JS): 
  *  /twitter-proxy.php?url='+encodeURIComponent('statuses/user_timeline.json?screen_name=MikeRogers0&count=2')
 */
 
 // The tokens, keys and secrets from the app you created at https://dev.twitter.com/apps
+// Add them here
 $config = array(
 	'oauth_access_token' => '',
 	'oauth_access_token_secret' => '',
@@ -19,10 +20,11 @@ $config = array(
 	'base_url' => 'https://api.twitter.com/1.1/'
 );
 
-//$twitterHandle = "gotestacct";
+// Add your twitter handle here. Mine is just a placeholder
 $twitterHandle = "jimcamut";
 
 // Only allow certain requests to twitter. Stop randoms using your server as a proxy.
+// If you change this, then you need to reflect the change on line 6 of the twitter-cards.js file.
 $whitelist = array(
 	'statuses/user_timeline.json?screen_name=' . $twitterHandle . '&count=100&include_rts=false&exclude_replies=true' => true
 );

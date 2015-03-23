@@ -1,11 +1,8 @@
-
-
 /*jslint browser: true */
 /*global jQuery */
 
 var twitterHandle = "jimcamut";
 var pathToTwitterProxy = "/twitter-proxy.php";
-// var tweetProxy = pathToTwitterProxy + '?url=' + encodeURIComponent('statuses/user_timeline.json?screen_name=' + twitterHandle + '&count=100&include_rts=false&exclude_replies=true');
 var tweetProxy = '/twitter-proxy.php/?url=' + encodeURIComponent('statuses/user_timeline.json?screen_name=' + twitterHandle + '&count=100&include_rts=false&exclude_replies=true');
 var numOfTweets = 5;
 var localData = JSON.parse(localStorage.getItem( 'twitterData' )) || false;
